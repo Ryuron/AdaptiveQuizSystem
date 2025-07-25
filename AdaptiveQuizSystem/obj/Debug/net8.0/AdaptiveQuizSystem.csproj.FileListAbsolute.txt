@@ -170,3 +170,4 @@ D:\AdaptiveQuizSystem\AdaptiveQuizSystem\bin\Debug\net8.0\runtimes\browser\lib\n
 D:\AdaptiveQuizSystem\AdaptiveQuizSystem\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\AdaptiveQuizSystem\AdaptiveQuizSystem\obj\Debug\net8.0\Adaptive.5B1BD3FC.Up2Date
 D:\AdaptiveQuizSystem\AdaptiveQuizSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\AdaptiveQuizSystem\AdaptiveQuizSystem\obj\Debug\net8.0\AdaptiveQuizSystem.sourcelink.json

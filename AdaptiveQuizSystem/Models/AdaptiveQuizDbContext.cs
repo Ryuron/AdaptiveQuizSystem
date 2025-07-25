@@ -21,8 +21,6 @@ public partial class AdaptiveQuizDbContext : DbContext
 
     public virtual DbSet<QuizQuestion> QuizQuestions { get; set; }
 
-    public virtual DbSet<QuizResult> QuizResults { get; set; }
-
     public virtual DbSet<QuizResultDetail> QuizResultDetails { get; set; }
 
     public virtual DbSet<Subject> Subjects { get; set; }

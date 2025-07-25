@@ -9,47 +9,62 @@
     <div>
         <label asp-for="Content">Nội dung câu hỏi</label>
         <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="OptionA">Đáp án A</label>
         <input asp-for="OptionA" class="form-control" />
+        <span asp-validation-for="OptionA" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="OptionB">Đáp án B</label>
         <input asp-for="OptionB" class="form-control" />
+        <span asp-validation-for="OptionB" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="OptionC">Đáp án C</label>
         <input asp-for="OptionC" class="form-control" />
+        <span asp-validation-for="OptionC" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="OptionD">Đáp án D</label>
         <input asp-for="OptionD" class="form-control" />
+        <span asp-validation-for="OptionD" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="CorrectAnswer">Đáp án đúng (A/B/C/D)</label>
         <input asp-for="CorrectAnswer" class="form-control" />
+        <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="SubjectId">Môn học</label>
-        <select asp-for="SubjectId" asp-items="ViewBag.SubjectId" class="form-control"></select>
+        <select asp-for="SubjectId" asp-items="@(new SelectList(ViewBag.Subjects, "SubjectId", "SubjectName"))" class="form-control">
+            <option value="">-- Chọn môn học --</option>
+        </select>
+        <span asp-validation-for="SubjectId" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="GradeLevel">Lớp</label>
         <input asp-for="GradeLevel" class="form-control" />
+        <span asp-validation-for="GradeLevel" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="DifficultyLevel">Độ khó (Dễ/Trung Bình/Khó)</label>
         <input asp-for="DifficultyLevel" class="form-control" />
+        <span asp-validation-for="DifficultyLevel" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-success">Lưu câu hỏi</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

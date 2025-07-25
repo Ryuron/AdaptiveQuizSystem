@@ -14,4 +14,5 @@ public partial class QuizQuestion
     public virtual Question Question { get; set; } = null!;
 
     public virtual Quiz Quiz { get; set; } = null!;
+  
 }

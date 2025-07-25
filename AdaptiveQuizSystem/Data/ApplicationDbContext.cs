@@ -14,7 +14,7 @@ namespace AdaptiveQuizSystem.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<QuizQuestion> Questions { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
         public DbSet<QuizQuestion> QuizQuestions { get; set; }
         public DbSet<QuizResultDetail> QuizResults { get; set; }
