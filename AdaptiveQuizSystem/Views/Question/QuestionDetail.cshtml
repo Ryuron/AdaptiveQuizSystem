@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống trắc nghiệm thích ứng</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <div class="text-xl font-bold">Trang chủ</div>
+        <nav class="space-x-4">
+            <a href="#" class="hover:underline">Trang chủ</a>
+            <a href="#" class="hover:underline">Làm bài trắc nghiệm</a>
+            <a href="#" class="hover:underline">Quản lý đề thi của tôi</a>
+            <a href="#" class="hover:underline">Tài khoản</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-8">
+
+        <!-- Trang Quản lý câu hỏi -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Quản lý ngân hàng câu hỏi</h2>
+
+            <div class="mb-4">
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Thêm câu hỏi mới</button>
+            </div>
+
+            <table class="min-w-full border">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border p-2 text-left">ID</th>
+                        <th class="border p-2 text-left">Môn học</th>
+                        <th class="border p-2 text-left">Lớp</th>
+                        <th class="border p-2 text-left">Nội dung</th>
+                        <th class="border p-2 text-left">Độ khó</th>
+                        <th class="border p-2 text-left">Tỷ lệ đúng</th>
+                        <th class="border p-2 text-left">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border p-2">1</td>
+                        <td class="border p-2">Toán</td>
+                        <td class="border p-2">10</td>
+                        <td class="border p-2">Một người gửi ngân hàng...</td>
+                        <td class="border p-2">Trung Bình</td>
+                        <td class="border p-2">75%</td>
+                        <td class="border p-2 space-x-2">
+                            <button class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Sửa</button>
+                            <button class="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700">Xóa</button>
+                        </td>
+                    </tr>
+                    <!-- Thêm nhiều dòng dữ liệu khác tương tự -->
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

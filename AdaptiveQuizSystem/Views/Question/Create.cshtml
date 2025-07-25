@@ -1,0 +1,55 @@
+﻿@model AdaptiveQuizSystem.Models.Question
+@{
+    ViewData["Title"] = "Thêm câu hỏi";
+}
+
+<h2>Thêm câu hỏi mới</h2>
+
+<form asp-action="Create" method="post" class="space-y-4">
+    <div>
+        <label asp-for="Content">Nội dung câu hỏi</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+    </div>
+
+    <div>
+        <label asp-for="OptionA">Đáp án A</label>
+        <input asp-for="OptionA" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="OptionB">Đáp án B</label>
+        <input asp-for="OptionB" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="OptionC">Đáp án C</label>
+        <input asp-for="OptionC" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="OptionD">Đáp án D</label>
+        <input asp-for="OptionD" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="CorrectAnswer">Đáp án đúng (A/B/C/D)</label>
+        <input asp-for="CorrectAnswer" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="SubjectId">Môn học</label>
+        <select asp-for="SubjectId" asp-items="ViewBag.SubjectId" class="form-control"></select>
+    </div>
+
+    <div>
+        <label asp-for="GradeLevel">Lớp</label>
+        <input asp-for="GradeLevel" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="DifficultyLevel">Độ khó (Dễ/Trung Bình/Khó)</label>
+        <input asp-for="DifficultyLevel" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu câu hỏi</button>
+</form>

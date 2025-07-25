@@ -1,0 +1,41 @@
+﻿@model AdaptiveQuizSystem.Models.RegisterViewModel
+
+<h2>Đăng ký</h2>
+
+<form asp-action="Register" method="post">
+    <div class="mb-2">
+        <input asp-for="Username" placeholder="Tên đăng nhập" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <input asp-for="Email" placeholder="Email" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <input asp-for="Password" placeholder="Mật khẩu" type="password" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <input asp-for="ConfirmPassword" placeholder="Xác nhận mật khẩu" type="password" class="form-control" />
+    </div>
+
+    <!-- GradeLevel as buttons -->
+    <div class="mb-2">
+        <label class="form-label">Chọn lớp học:</label>
+        <div class="btn-group" role="group">
+            @for (int i = 1; i <= 12; i++)
+            {
+                <input type="radio" class="btn-check" name="GradeLevel" value="@i" id="grade-@i" autocomplete="off" />
+                <label class="btn btn-outline-primary" for="grade-@i">@i</label>
+            }
+        </div>
+    </div>
+
+    <!-- CurrentLevel dropdown -->
+    <div class="mb-2">
+        <select asp-for="CurrentLevel" class="form-select">
+            <option value="Yếu">Yếu</option>
+            <option value="Trung bình">Trung bình</option>
+            <option value="Giỏi">Giỏi</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Đăng ký</button>
+</form>
