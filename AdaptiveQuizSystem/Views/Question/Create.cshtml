@@ -1,70 +1,102 @@
 ﻿@model AdaptiveQuizSystem.Models.Question
+
 @{
-    ViewData["Title"] = "Thêm câu hỏi";
+    ViewData["Title"] = "Tạo câu hỏi mới";
 }
 
-<h2>Thêm câu hỏi mới</h2>
+<h2>Tạo câu hỏi mới</h2>
 
-<form asp-action="Create" method="post" class="space-y-4">
-    <div>
-        <label asp-for="Content">Nội dung câu hỏi</label>
-        <textarea asp-for="Content" class="form-control"></textarea>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Content" class="control-label">Nội dung câu hỏi</label>
+        <textarea asp-for="Content" class="form-control" rows="3" placeholder="Nhập nội dung câu hỏi..."></textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="OptionA">Đáp án A</label>
-        <input asp-for="OptionA" class="form-control" />
+    <div class="form-group">
+        <label asp-for="OptionA" class="control-label">Lựa chọn A</label>
+        <input asp-for="OptionA" class="form-control" placeholder="Nhập lựa chọn A..." />
         <span asp-validation-for="OptionA" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="OptionB">Đáp án B</label>
-        <input asp-for="OptionB" class="form-control" />
+    <div class="form-group">
+        <label asp-for="OptionB" class="control-label">Lựa chọn B</label>
+        <input asp-for="OptionB" class="form-control" placeholder="Nhập lựa chọn B..." />
         <span asp-validation-for="OptionB" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="OptionC">Đáp án C</label>
-        <input asp-for="OptionC" class="form-control" />
+    <div class="form-group">
+        <label asp-for="OptionC" class="control-label">Lựa chọn C</label>
+        <input asp-for="OptionC" class="form-control" placeholder="Nhập lựa chọn C..." />
         <span asp-validation-for="OptionC" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="OptionD">Đáp án D</label>
-        <input asp-for="OptionD" class="form-control" />
+    <div class="form-group">
+        <label asp-for="OptionD" class="control-label">Lựa chọn D</label>
+        <input asp-for="OptionD" class="form-control" placeholder="Nhập lựa chọn D..." />
         <span asp-validation-for="OptionD" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="CorrectAnswer">Đáp án đúng (A/B/C/D)</label>
-        <input asp-for="CorrectAnswer" class="form-control" />
+    <div class="form-group">
+        <label asp-for="CorrectAnswer" class="control-label">Đáp án đúng</label>
+        <select asp-for="CorrectAnswer" class="form-control">
+            <option value="">-- Chọn đáp án đúng --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
         <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="SubjectId">Môn học</label>
-        <select asp-for="SubjectId" asp-items="@(new SelectList(ViewBag.Subjects, "SubjectId", "SubjectName"))" class="form-control">
+    <div class="form-group">
+        <label asp-for="SubjectId" class="control-label">Môn học</label>
+        <select asp-for="SubjectId" class="form-control">
             <option value="">-- Chọn môn học --</option>
+            @if (ViewBag.Subjects != null)
+            {
+                @foreach (var subject in ViewBag.Subjects as List<AdaptiveQuizSystem.Models.Subject>)
+                {
+                    <option value="@subject.SubjectId">@subject.SubjectName</option>
+                }
+            }
         </select>
         <span asp-validation-for="SubjectId" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="GradeLevel">Lớp</label>
-        <input asp-for="GradeLevel" class="form-control" />
+    <div class="form-group">
+        <label asp-for="GradeLevel" class="control-label">Cấp độ lớp</label>
+        <select asp-for="GradeLevel" class="form-control">
+            <option value="">-- Chọn cấp độ lớp --</option>
+            @for (int i = 1; i <= 12; i++)
+            {
+                <option value="@i">Lớp @i</option>
+            }
+        </select>
         <span asp-validation-for="GradeLevel" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="DifficultyLevel">Độ khó (Dễ/Trung Bình/Khó)</label>
-        <input asp-for="DifficultyLevel" class="form-control" />
+    <div class="form-group">
+        <label asp-for="DifficultyLevel" class="control-label">Mức độ khó</label>
+        <select asp-for="DifficultyLevel" class="form-control">
+            <option value="">-- Chọn mức độ khó --</option>
+            <option value="Dễ">Dễ</option>
+            <option value="Trung bình">Trung bình</option>
+            <option value="Khó">Khó</option>
+        </select>
         <span asp-validation-for="DifficultyLevel" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Lưu câu hỏi</button>
+    <div class="form-group">
+        <input type="submit" value="Tạo câu hỏi" class="btn btn-primary" />
+        <a asp-action="QuestionDetail" class="btn btn-secondary">Quay lại</a>
+    </div>
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

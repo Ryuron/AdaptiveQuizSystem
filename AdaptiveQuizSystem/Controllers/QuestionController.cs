@@ -1,7 +1,8 @@
 ﻿using AdaptiveQuizSystem.Data;
 using AdaptiveQuizSystem.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Threading.Tasks;
 
 namespace AdaptiveQuizSystem.Controllers
 {
@@ -14,16 +15,17 @@ namespace AdaptiveQuizSystem.Controllers
             _context = context;
         }
 
-        // GET: /Question/QuestionDetail
         public IActionResult QuestionDetail()
         {
-            return View(); // Mặc định tìm View: Views/Question/QuestionDetail.cshtml
+            return View();
         }
+
         public IActionResult Create()
         {
             ViewBag.Subjects = _context.Subjects.ToList();
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Question model)
@@ -47,14 +49,12 @@ namespace AdaptiveQuizSystem.Controllers
                 _context.Questions.Add(question);
                 await _context.SaveChangesAsync();
 
+                TempData["SuccessMessage"] = "Câu hỏi đã được tạo thành công!";
                 return RedirectToAction("QuestionDetail");
             }
 
-            // Nếu lỗi, nạp lại danh sách Subject (Lưu ý KHÔNG dùng SelectList ở đây)
             ViewBag.Subjects = _context.Subjects.ToList();
-
             return View(model);
         }
-
     }
 }
